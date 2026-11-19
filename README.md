@@ -2,56 +2,36 @@
 
 Landing page cho **SOWN**: cây để bàn, lan hồ điệp, kim tiền, tùng thơm, cây trang trí không gian và bonsai nghệ thuật.
 
-Website tĩnh — HTML + CSS + JavaScript, **không cần build**. Thư viện hiệu ứng được tải qua CDN:
-
-| Thư viện | Dùng cho |
-|---|---|
-| [GSAP 3.12.5 + ScrollTrigger](https://gsap.com) | Các cảnh chạy theo cuộn: zoom ảnh, cuộn ngang, chữ sáng dần, parallax |
-| [Lenis 1.1.13](https://github.com/darkroomengineering/lenis) | Cuộn trang mượt |
-| [Three.js r128](https://threejs.org) | Lá cây 3D bay trong hero |
-
-Nếu CDN không tải được, trang vẫn hiển thị đầy đủ nội dung (chỉ mất bớt hiệu ứng).
+Website tĩnh — HTML + CSS + JavaScript, **không cần build**. Thư viện tải qua CDN:
+[GSAP 3.12.5 + ScrollTrigger](https://gsap.com) (cảnh zoom ảnh vườn ươm, parallax nhẹ) và
+[Lenis 1.1.13](https://github.com/darkroomengineering/lenis) (cuộn mượt). Nếu CDN không tải được, trang vẫn hiển thị đầy đủ.
 
 ## Cấu trúc
 
 ```
 .
 ├── index.html
+├── .nojekyll
 ├── assets/
 │   ├── css/style.css
 │   ├── js/main.js
 │   └── images/
-│       ├── products/        # Ảnh thật của SOWN (đã nén cho web)
-│       ├── logo.png, logo-white.png, tagline*.png, favicon.svg
+│       ├── products/      # 16 ảnh thật của SOWN (đã nén cho web)
+│       ├── slogan.jpg     # Slogan cuối trang
+│       └── logo.png, logo-white.png, tagline*.png, favicon.svg
 └── README.md
 ```
 
-## Hiệu ứng
+## Hiệu ứng (bản nhẹ nhàng)
 
-**3D**
-- Lá cây 3D (WebGL) bay lơ lửng trong hero, phản ứng theo chuột và tốc độ cuộn
-- Khung ảnh hero nghiêng 3D theo chuột, các thẻ nổi ở nhiều lớp chiều sâu
-- **Showroom 3D**: vòng xoay chậu cây — kéo để xoay, bấm để đưa lên trước, tự quay
-- Thẻ sản phẩm **lật 3D** để xem cách chăm (hover trên máy tính, chạm trên điện thoại)
-- Thẻ giá trị lật 3D, thẻ bộ sưu tập nghiêng 3D có ánh sáng phản chiếu
-- Chữ tiêu đề lật lên từng ký tự
+- Preloader mầm cây, nội dung hiện dần khi cuộn
+- Vòng xoay 3D "Khu vườn nhỏ" (kéo để xoay, chạm để đưa ảnh lên trước)
+- Thẻ sản phẩm & thẻ giá trị lật 3D (hover trên máy tính, chạm trên điện thoại)
+- Ảnh vườn tùng phóng to từ khung vòm ra toàn màn hình
+- Thẻ hướng dẫn chăm cây xếp chồng khi cuộn
+- Bộ lọc sản phẩm, lightbox xem ảnh, menu mobile
 
-**Chuyển động theo cuộn**
-- Preloader mầm cây + bộ đếm %, màn mở ra hai phía
-- Ảnh vườn ươm phóng to từ khung vòm ra toàn màn hình (pinned)
-- "Hành trình một mầm xanh" cuộn **ngang** khi cuộn dọc
-- Câu trích dẫn sáng dần từng chữ
-- Thư viện ảnh 3 cột chạy lệch tốc độ, thẻ chăm cây xếp chồng
-- Dải chữ chạy tăng tốc / đổi chiều theo tốc độ cuộn
-- Parallax nhiều lớp, ảnh hiện ra kiểu "kéo rèm"
-
-**Tương tác**
-- Con trỏ tùy chỉnh có nhãn ("Xem", "Kéo") + vệt lá rơi theo chuột
-- Nút nam châm, hiệu ứng gợn sóng khi bấm
-- Lightbox xem ảnh (phím mũi tên, vuốt), menu mobile mở dạng vòng tròn
-
-Tất cả đều tắt bớt khi hệ điều hành bật *giảm chuyển động* (`prefers-reduced-motion`).
-
+Mỗi ảnh chỉ xuất hiện **một lần** trên trang.
 ## Chạy thử
 
 Mở `index.html` bằng trình duyệt, hoặc:
